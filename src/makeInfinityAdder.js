@@ -3,20 +3,20 @@
 /***
  * @return {function}
  */
-function makeAdder(init = 0) {
-  let sum = init;
+function makeAdder() {
+  let sum = 0;
   const adder = (num) => {
-    if (num === undefined) {
-      const count = sum;
+    if (num !== undefined) {
+      sum += num;
 
-      sum = 0;
-
-      return count;
+      return adder;
     }
 
-    sum += num;
+    const count = sum;
 
-    return adder;
+    sum = 0;
+
+    return count;
   };
 
   return adder;
